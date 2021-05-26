@@ -1,6 +1,10 @@
 import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+// CommonJS:
+const dat = require("dat.gui");
+
+const gui = new dat.GUI();
 
 /**
  * Base
@@ -48,6 +52,7 @@ const material = new THREE.MeshBasicMaterial({
 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
+gui.add(mesh.position, "y", -2, 2, 0.001);
 
 /**
  * Sizes
